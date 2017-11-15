@@ -2,7 +2,8 @@
 	<ul	class="todo-list">
 		<li	v-for="todo	in sortedTasks" class="todo">
 			<div class="view">
-				<label>{{	todo.title	}}</label>
+			  <input type="checkbox" @click="completeTask(todo)" />
+				<label :class="{'todo-completed' : todo.completed }">{{	todo.title	}}</label>
 			</div>
 		</li>
 	</ul>
@@ -13,10 +14,8 @@ export default {
   props: ['todoList'],
   computed: {
     sortedTasks: function () {
-      console.log('que merda')
       let sorted = this.todoList
       return sorted.sort(function (a, b) {
-        console.log('aqui')
         if (a.title < b.title) return -1
         if (a.title > b.title) return 1
         return 0
@@ -25,6 +24,17 @@ export default {
   },
   set: function (novalista) {
     this.todoList.concat(novalista)
+  },
+  methods: {
+    completeTask (task) {
+      task.completed = !task.completed
+    }
   }
 }
 </script>
+
+<style>
+  .todo-completed {
+    text-decoration: line-through;
+  }
+</style>

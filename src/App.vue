@@ -5,18 +5,21 @@
       <input-task @newTask="addTask"></input-task>
       <task-list v-bind:todo-list="tasks"></task-list>
     </header>
+    <condicional></condicional>
   </section>
 </template>
 
 <script>
 import InputTask from './components/InputTask'
 import TaskList from './components/TaskList'
+import Condicional from './components/Condicional'
 
 export default {
   name: 'app',
   components: {
     InputTask,
-    TaskList
+    TaskList,
+    Condicional
   },
   data () {
     return {
