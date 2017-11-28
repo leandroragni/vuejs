@@ -32,6 +32,15 @@ export default {
     },
     broadcast (task) {
       this.$emit('newTask', task)
+    },
+    createTaskJson (task) { // apenas exemplo
+      let json = JSON.stringify(task)
+      let url = 'http://urldopost.com.br'
+      this.$http.post(url, json, {
+        headers: {
+          'Authorization': 'Basic KPDOAKODKAO=='
+        }
+      })
     }
   }
 }

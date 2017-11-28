@@ -3,6 +3,12 @@
     <label>Digite seu CEP</label>
     <input @blur="checkCep" type="text"></input>
     <router-link class="home" to="/">Ver tarefas</router-link>
+    <div v-show="hasAddress()">
+       <p>Rua: {{address.logradouro}}</p>
+       <p>Bairro: {{address.bairro}}</p>
+       <p>Cidade: {{address.cidade}}</p>
+       <p>Estado: {{address.estado}}</p>
+     </div>
   </section>
 </template>
 
@@ -25,6 +31,9 @@ export default {
           console.log(res)
         }
       )
+    },
+    hasAddress () {
+      return Object.keys(this.address).length > 0
     }
   }
 }
