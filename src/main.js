@@ -5,10 +5,14 @@ import App from './App'
 import VueRouter from 'vue-router'
 import routes from './routes'
 import VueResource from 'vue-resource'
+import Focus from './directives/focus'
+import VueEvents from './plugins/events'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(VueResource)
+Vue.use(Focus)
+Vue.use(VueEvents)
 
 const router = new VueRouter({
   mode: 'history',

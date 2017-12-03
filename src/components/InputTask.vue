@@ -1,13 +1,14 @@
 <template>
   <div>
     <p>
-      <input class="new_todo" @keyup.enter="addTask" placeholder="O que precisa ser feito" />
+      <input class="new_todo" v-focus="true" @keyup.enter="addTask" placeholder="O que precisa ser feito" />
     </p>
   </div>
 </template>
 
 <script>
 import { Task } from '../models/Task'
+import Focus from '../directives/focus'
 
 export default {
   data () {
@@ -15,6 +16,9 @@ export default {
     }
   },
   methods: {
+    directives: {
+      'focus': Focus
+    },
     addTask ($event) {
       let value = $event.target.value
       let task = this.createTask(value)

@@ -27,9 +27,15 @@ export default {
       tasks: []
     }
   },
+  mounted () {
+    this.events.on('newTask', eventData => this.addTask(eventData))
+  },
   methods: {
     addTask (task) {
       this.tasks.push(task)
+    },
+    broadcast (task) {
+      this.$events.emit('newTask', task)
     }
   }
 }
