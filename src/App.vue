@@ -7,6 +7,7 @@
           <router-link class="cep" to="/cep">Verificar CEP</router-link>
     </header>
     <condicional></condicional>
+    <footer-todo></footer-todo>
   </section>
 </template>
 
@@ -14,13 +15,15 @@
 import InputTask from './components/InputTask'
 import TaskList from './components/TaskList'
 import Condicional from './components/Condicional'
+import FooterTodo from './components/Footer'
 
 export default {
   name: 'app',
   components: {
     InputTask,
     TaskList,
-    Condicional
+    Condicional,
+    FooterTodo
   },
   data () {
     return {

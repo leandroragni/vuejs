@@ -9,17 +9,24 @@
        <p>Cidade: {{address.cidade}}</p>
        <p>Estado: {{address.estado}}</p>
      </div>
+     <footer-todo>
+       <p>Footer do Cep</p>
+     </footer-todo>
   </section>
 </template>
 
 <script>
 import AwesomeMask from 'awesome-mask'
+import FooterTodo from './Footer'
 
 export default {
   data () {
     return {
       address: {}
     }
+  },
+  components: {
+    FooterTodo
   },
   directives: {
     'mask': AwesomeMask
